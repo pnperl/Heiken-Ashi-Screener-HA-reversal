@@ -13,7 +13,7 @@ from google.colab import userdata
 # --- 1. SETTINGS & ASSETS ---
 # Expanded list with popular symbols from different markets
 SYMBOLS = [
-    "BTC-USD", "ETH-USD", "SOL-USD",  # Crypto
+    "BTC-USD", "ETH-USD", "SOL-USD", "BNB-USDT","LINK-USDT",  # Crypto
     "^NSEI", "^NSEBANK", "RELIANCE.NS", "HDFCBANK.NS", "ICICIBANK.NS", "LT.NS", # India (Nifty 50, Reliance, HDFC)
     "AAPL", "TSLA", "NVDA", "MSFT"      # US (Apple, Tesla, Nvidia, Microsoft)
 ]
