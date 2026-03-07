@@ -14,7 +14,7 @@ from google.colab import userdata
 # Expanded list with popular symbols from different markets
 SYMBOLS = [
     "BTC-USD", "ETH-USD", "SOL-USD",  # Crypto
-    "^NSEI", "RELIANCE.NS", "HDFCBANK.NS", # India (Nifty 50, Reliance, HDFC)
+    "^NSEI", "^NSEBANK", "RELIANCE.NS", "HDFCBANK.NS", "ICICIBANK.NS", "LT.NS", # India (Nifty 50, Reliance, HDFC)
     "AAPL", "TSLA", "NVDA", "MSFT"      # US (Apple, Tesla, Nvidia, Microsoft)
 ]
 
