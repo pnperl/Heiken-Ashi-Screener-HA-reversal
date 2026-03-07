@@ -1,5 +1,5 @@
-yfinance>=0.2.36
-pandas>=2.0.0
-numpy>=1.26.0
-requests>=2.31.0
-python-dotenv>=1.0.0
+yfinance>=0.2.36      # Fetch market data
+pandas>=2.0.0         # Data manipulation
+numpy>=1.26.0         # Numerical operations
+requests>=2.31.0      # HTTP for Telegram API
+python-dotenv>=1.0.0  # Load secrets from .env
