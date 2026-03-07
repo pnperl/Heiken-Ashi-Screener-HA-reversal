@@ -1,0 +1,116 @@
+# ============================================================================
+# HEIKEN-ASHI TRADING BOT - CONFIGURATION
+# ============================================================================
+
+symbols:
+  crypto:
+    - "BTC-USD"
+    - "ETH-USD"
+    - "SOL-USD"
+    - "BNB-USDT"
+    - "LINK-USDT"
+  
+  india:
+    - "^NSEI"
+    - "^NSEBANK"
+    - "RELIANCE.NS"
+    - "HDFCBANK.NS"
+    - "ICICIBANK.NS"
+    - "LT.NS"
+  
+  us:
+    - "AAPL"
+    - "TSLA"
+    - "NVDA"
+    - "MSFT"
+
+# ============================================================================
+# TRADING PARAMETERS
+# ============================================================================
+
+trading:
+  interval: "5m"                    # Candle interval
+  candle_check_interval: 30         # Check every 30 seconds
+  
+  # ENTRY FILTERS (NEW)
+  min_probability: 0.60             # Confidence threshold 0-1
+  min_volume_ratio: 1.20            # Volume 20% above average
+  
+  # RSI FILTER (NEW)
+  rsi_filter_enabled: true
+  rsi_oversold: 35
+  rsi_overbought: 65
+  
+  # EMA FILTER (NEW)
+  ema_filter_enabled: true
+  
+  # EXIT CONFIGURATION (NEW)
+  tp_atr_multiplier: 2.0            # TP = Entry ± (ATR × 2)
+  use_trailing_sl: true             # Update SL as price moves
+  max_concurrent_positions: 5
+  max_slippage: 0.01                # Max 1% slippage
+
+# ============================================================================
+# RISK MANAGEMENT (NEW)
+# ============================================================================
+
+risk_management:
+  position_size_pct: 2.0            # Risk 2% per trade
+  
+  # Position sizing per asset
+  crypto_position_size: 1.0         # Crypto = 1% (more volatile)
+  india_position_size: 2.0          # India = 2%
+  us_position_size: 2.0             # US = 2%
+
+# ============================================================================
+# PROFILES (For different trading styles)
+# ============================================================================
+
+profiles:
+  conservative:
+    description: "Low risk, high win rate"
+    min_probability: 0.70
+    min_volume_ratio: 1.50
+    rsi_filter_enabled: true
+    ema_filter_enabled: true
+    tp_atr_multiplier: 1.5
+    position_size_pct: 1.0
+  
+  balanced:
+    description: "Recommended default"
+    min_probability: 0.60
+    min_volume_ratio: 1.20
+    rsi_filter_enabled: true
+    ema_filter_enabled: true
+    tp_atr_multiplier: 2.0
+    position_size_pct: 2.0
+  
+  aggressive:
+    description: "High trades, lower win rate"
+    min_probability: 0.50
+    min_volume_ratio: 1.00
+    rsi_filter_enabled: false
+    ema_filter_enabled: false
+    tp_atr_multiplier: 3.0
+    position_size_pct: 3.0
+
+# ============================================================================
+# LOGGING
+# ============================================================================
+
+logging:
+  level: "INFO"                     # DEBUG, INFO, WARNING, ERROR
+  file: "bot.log"
+  max_file_size_mb: 100
+  backup_count: 5
+
+# ============================================================================
+# NOTIFICATIONS
+# ============================================================================
+
+telegram:
+  enabled: true
+  send_entry_alerts: true
+  send_exit_alerts: true
+  send_daily_summary: true
+  # Set TELEGRAM_TOKEN and TELEGRAM_CHAT_ID in .env file
